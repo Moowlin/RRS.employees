@@ -26,15 +26,7 @@ public class Main {
                         scanner.close();
                         return;
                     case 1:
-                        System.out.println("1");
-                        employeeDB.addEmployees();
-                        break;
-                    case 2:
-                        System.out.println("2");
-                        employeeDB.listEmployees();
-                        break;
-                    case 3:
-                        System.out.println("3");
+                        employeeDB.addEmployees(scanner);
                         break;
                     default:
                         System.out.println(GlobalVariables.resourceBundle.getString("errorInvalidChoice"));
@@ -50,7 +42,13 @@ public class Main {
                         return;
                     case 1:
                         System.out.println("1");
-                        employeeDB.addEmployees();
+                        employeeDB.addEmployees(scanner);
+                        break;
+                    case 2:
+                        employeeDB.listEmployees();
+                        break;
+                    case 3:
+                        System.out.println("3");
                         break;
                     default:
                         System.out.println(GlobalVariables.resourceBundle.getString("errorInvalidChoice"));

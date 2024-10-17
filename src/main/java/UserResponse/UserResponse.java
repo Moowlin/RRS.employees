@@ -43,7 +43,6 @@ public class UserResponse {
         employeeInfo[0] = getName(scanner);
         System.out.print("Enter employee last name: ");
         employeeInfo[1] = getName(scanner);
-        System.out.print("Enter employee gender: ");
         employeeInfo[2] = getGender(scanner);
         System.out.print("Enter employee work duration: ");
         employeeInfo[3] = getValidNumber(scanner);
@@ -53,7 +52,6 @@ public class UserResponse {
             System.out.print("Enter the number of subordinate employees: ");
             employeeInfo[4] = getValidNumber(scanner);
         }
-
         return employeeInfo;  // Return the collected employee information
     }
 
@@ -71,7 +69,7 @@ public class UserResponse {
             if (name.matches("[a-zA-Z\\s'-]+")) {
                 return name;
             } else {
-                System.out.println("Invalid name, please try again:");
+                System.out.print("Invalid name, please try again: ");
             }
         }
     }
@@ -91,7 +89,7 @@ public class UserResponse {
             if (gender.matches("[wm]")) {
                 return gender;
             } else {
-                System.out.println("Invalid gender, please try again:");
+                System.out.print("Invalid gender, please try again: ");
             }
         }
     }

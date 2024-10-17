@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-
 public class EmployeeDB {
 
     private ArrayList<Employee> asFamily = new ArrayList<>();
@@ -18,6 +17,10 @@ public class EmployeeDB {
         if (asFamily.isEmpty()) {
             System.out.println(GlobalVariables.resourceBundle.getString("databaseIsEmpty"));
         } else {
+            System.out.printf("В базе %d сотрудников\n", asFamily.size());
+            System.out.println(
+                    GlobalVariables.bold + GlobalVariables.green+ "|| Номер || Имя || Должность || Базовая ставка || Текущая зарплата ||\n"+ GlobalVariables.resetText+ GlobalVariables.resetColor
+            );
             for (Employee emp : tempAsFamily) {
                 System.out.println(emp);
             }
@@ -27,15 +30,13 @@ public class EmployeeDB {
         return asFamily.size();
     }
 
-    public void addEmployees() {
-        System.out.println(GlobalVariables.resourceBundle.getString("createdEmployeeMenu"));
-        Scanner input = new Scanner(System.in);  // Scanner to read user input
+    public void addEmployees(Scanner input) {
         while (true) {
+            System.out.println(GlobalVariables.resourceBundle.getString("createdEmployeeMenu"));
             int userResponse = Integer.parseInt(UserResponse.getValidNumber(input));
             switch (userResponse){
                 case 0:
                     System.out.println(GlobalVariables.resourceBundle.getString("exiting"));
-                    input.close();
                     return;
                 case 1:
                     String[] infoWorker = UserResponse.getEmployeeInfo(userResponse, input);
@@ -69,7 +70,7 @@ public class EmployeeDB {
 
     public void addWorker(Employee worker) {
         tempAsFamily.add(worker);
-        System.out.println("Worker added: " + worker);
+        System.out.println("Worker added: " + worker.getFirstName());
         asFamily = new ArrayList<>(tempAsFamily);
     }
 }
